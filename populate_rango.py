@@ -7,7 +7,6 @@ django.setup()
 from rango.models import Category, Page
 
 
-
 def populate():
 
     python_pages = [
@@ -43,7 +42,6 @@ def populate():
             add_page(c, p['title'], p['url'], p['views'])
         
 
-
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
@@ -63,7 +61,6 @@ def add_cat(name, views, likes):
     c.likes = likes
     c.save()
     return c
-
 
 
 if __name__ == '__main__':

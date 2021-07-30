@@ -8,6 +8,7 @@ from rango.models import Category
 from rango.models import Page
 
 def index(request):
+
     category_list = Category.objects.order_by('-likes')[:5]
 
     context_dict = {}
@@ -41,6 +42,7 @@ def show_category(request, category_name_slug):
 def add_category(request):
 
     form = CategoryForm()
+    # A HTTP POST?
     if request.method == 'POST':
         form = CategoryForm(request.POST)
 
@@ -48,7 +50,7 @@ def add_category(request):
 
             form.save(commit=True)
 
-            return redirect('/rango/')
+            return redirect(reverse('rango:index'))
         else:
 
             print(form.errors)
@@ -62,7 +64,7 @@ def add_page(request, category_name_slug):
     except Category.DoesNotExist:
         category = None
     if category is None:
-        return redirect('/rango/')
+        return redirect(reverse('rango:index'))
 
     form = PageForm()
 
@@ -85,4 +87,6 @@ def add_page(request, category_name_slug):
 
 
 def about(request):
-    return render(request, 'rango/about.html')
+    print(request.method)
+    print(request.user)
+    return render(request, 'rango/about.html', {})

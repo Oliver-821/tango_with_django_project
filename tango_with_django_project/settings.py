@@ -19,7 +19,6 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-
 SECRET_KEY = '$=p6b^0t+^(lc+ms7=$zn4492%#^n7h*bl_!bd%dj^((o_wok+'
 
 DEBUG = True
@@ -70,13 +69,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -93,6 +92,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -103,12 +104,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
 
+# Media files
 
 MEDIA_URL = '/media/'
 
